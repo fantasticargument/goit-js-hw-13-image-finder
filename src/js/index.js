@@ -1,5 +1,11 @@
 import NewsPictureApi from './apiService';
 import listPicture from '../templates/listPicture';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/mobile/dist/PNotifyMobile.css';
+import { alert, defaultModules } from '@pnotify/core';
+import * as PNotifyMobile from '@pnotify/mobile';
+defaultModules.set(PNotifyMobile, {});
 
 const rfs = {
   searchForm: document.querySelector('#search-form'),
@@ -21,7 +27,7 @@ const newsPictureApi = new NewsPictureApi();
 
 function onSubmit(eve) {
   eve.preventDefault();
-
+  clearConteiner();
   newsPictureApi.query = eve.currentTarget.elements.query.value;
   newsPictureApi.resetPsge();
   newsPictureApi.fethArticls().then(appEndPictureMarkup);
@@ -32,6 +38,14 @@ function onLoadMore() {
 }
 
 function appEndPictureMarkup(pictures) {
+  if (pictures.length === 0) {
+    alert({
+      title: 'NO PICTURE',
+      text: 'We could not find any pictures that match your query. Please try another name',
+      delay: 3000
+    });
+    return
+  }
   rfs.conteinerCard.insertAdjacentHTML('beforeend', listPicture(pictures));
 }
 
@@ -57,4 +71,8 @@ function onEscDown(event) {
   if (event.code === 'Escape') {
     closedModal();
   }
+}
+
+function clearConteiner() {
+  rfs.conteinerCard.innerHTML = '';
 }

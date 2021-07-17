@@ -1,0 +1,54 @@
+// colors by http://flatuicolors.com/
+
+.button-load-more {
+  opacity: 0;
+  background-color: $body-bg;
+  margin: 30px;
+  border-radius: 5px;
+  height: 30px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.loader {
+  width: 1em;
+  height: 1em;
+  font-size: $loader-size;
+  position: relative;
+  @media (max-width: $loader-size * 1.5), (max-height: $loader-size * 1.5) {
+    font-size: $loader-size/2;
+  }
+  &:before,
+  &:after {
+    content: '';
+    top: 0;
+    display: block;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    border-width: $loader-width;
+    border-style: $loader-style;
+    border-color: transparent;
+    box-sizing: border-box;
+    border-radius: 1em;
+    animation: spin $loader-speed infinite;
+  }
+  &:after {
+    // left: 0;
+    border-left-color: $loader-color;
+  }
+  &:before {
+    // right: 0;
+    border-right-color: $loader-color;
+    animation-delay: $loader-speed/-4;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-text {
+  padding-left: 20px;
+}
