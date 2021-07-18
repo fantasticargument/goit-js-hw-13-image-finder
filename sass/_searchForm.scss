@@ -1,9 +1,12 @@
 .search-form {
+  display: flex;
+  justify-content: center;
   margin-bottom: 30px;
 
   &-input {
     border-radius: 5px;
     height: 30px;
+    margin-right: 5px;
   }
 
   &-button {

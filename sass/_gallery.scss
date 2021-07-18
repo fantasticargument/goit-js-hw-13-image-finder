@@ -1,4 +1,10 @@
+// .box {
+//   position: fixed;
+//   overflow: hidden;
+// }
+
 .gallery {
+  position: relative;
   display: grid;
   width: 1200px;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -8,8 +14,10 @@
   list-style: none;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
 
   &-item {
+    position: absolute;
     background-color: rgb(250, 250, 210);
     position: relative;
     object-fit: cover;

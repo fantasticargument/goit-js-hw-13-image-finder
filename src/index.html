@@ -11,16 +11,19 @@
     </head>
 
     <body>
-        <h1 class="title">What picture are you looking for?</h1>
+        <div class="section">
+            <h1 class="title">What picture are you looking for?</h1>
 
-        <form class="search-form" id="search-form">
-            <input type="text" class="search-form-input" name="query" autocomplete="off" placeholder="Search images..." />
-            <button type="submit" class="search-form-button">Search</button>
-        </form>
+            <form class="search-form" id="search-form">
+                <input type="text" class="search-form-input" name="query" autocomplete="off" placeholder="Search images..." />
+                <button type="submit" class="search-form-button">Search</button>
+            </form>
+        </div>
 
-        <ul class="gallery">
-            <!-- Список <li> з картками зображень -->
-        </ul>
+        <div class="box">
+            <ul class="gallery">
+            </ul>
+        </div>
 
         <button type="button" class="button-load-more is-hidden" data-action="load-more" disabled>
             <span class="loader"></span>

@@ -29,6 +29,7 @@ const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
   hidden: true,
 });
+const lasElement = rfs.conteinerCard.children ;
 
 function onSubmit(eve) {
   eve.preventDefault();
@@ -39,8 +40,16 @@ function onSubmit(eve) {
 }
 
 function onLoadMore() {
-  newsPictureApi.fethArticls().then(appEndPictureMarkup);
+  newsPictureApi.fethArticls().then(appEndPictureMarkup).then(onScroll);
   loadMoreBtn.disable();
+}
+
+function onScroll() {
+  let i= lasElement.length
+  lasElement[i-12].scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
 }
 
 function appEndPictureMarkup(pictures) {
@@ -50,6 +59,7 @@ function appEndPictureMarkup(pictures) {
       text: 'We could not find any pictures that match your query. Please try another name',
       delay: 3000
     });
+    loadMoreBtn.hide();
     return
   }
   rfs.conteinerCard.insertAdjacentHTML('beforeend', listPicture(pictures));

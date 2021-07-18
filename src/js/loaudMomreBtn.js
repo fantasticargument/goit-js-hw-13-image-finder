@@ -15,7 +15,7 @@ export default class LoadMoreBtn {
 
   enable() {
     this.rfs.button.disabled = false;
-    this.rfs.label.textContent = 'Show more...';
+    this.rfs.label.textContent = 'Show more';
     this.rfs.spinner.classList.add('is-hidden');
   }
 
