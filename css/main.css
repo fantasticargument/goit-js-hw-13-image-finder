@@ -269,6 +269,7 @@ body {
 }
 
 .button-load-more {
+  position: relative;
   background-color: lightgoldenrodyellow;
   margin: 30px;
   border-radius: 5px;
@@ -277,16 +278,17 @@ body {
           box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.button-load-more.is-hidden {
-  display: none;
-}
-
 .button-load-more:hover {
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 }
 
+.is-hidden {
+  display: none;
+}
+
 .loader {
+  margin-left: 30px;
   width: 1em;
   height: 1em;
   font-size: 15px;

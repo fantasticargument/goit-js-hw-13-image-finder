@@ -1,36 +1,39 @@
 export default class LoadMoreBtn {
   constructor({ selector, hidden = false }) {
-    this.rfs = this.getRefs(selector);
+    this.rfs = this.getRfs(selector);
 
     hidden && this.hide();
   }
 
-  getRefs(selector) {
+  getRfs(selector) {
     const rfs = {};
     rfs.button = document.querySelector(selector);
-    // rfs.label = rfs.button.querySelector('.label');
-    rfs.spinner = rfs.button.querySelector('span');
-
+    rfs.label = rfs.button.querySelector('.label');
+    rfs.spinner = rfs.button.querySelector('.loader');
     return rfs;
   }
 
   enable() {
     this.rfs.button.disabled = false;
-    this.rfs.button.textContent = 'find more';
-    // this.rfs.spinner.classList.add('loader');
+    this.rfs.label.textContent = 'Show more...';
+    this.rfs.spinner.classList.add('is-hidden');
+          console.log(this.rfs.spinner)
+
   }
 
   disable() {
     this.rfs.button.disabled = true;
-    this.rfs.button.textContent = 'Loading...';
-    // this.rfs.spinner.classList.remove('loader');
+    this.rfs.label.textContent = 'load...';
+    this.rfs.spinner.classList.remove('is-hidden');
+                console.log(this.rfs.spinner)
+
   }
 
   show() {
     this.rfs.button.classList.remove('is-hidden');
   }
 
-    hide() {
+  hide() {
     this.rfs.button.classList.add('is-hidden');
   }
 }
