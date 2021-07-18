@@ -2387,9 +2387,8 @@ var LoadMoreBtn = /*#__PURE__*/function () {
     key: "enable",
     value: function enable() {
       this.rfs.button.disabled = false;
-      this.rfs.label.textContent = 'Show more...';
+      this.rfs.label.textContent = 'Show more';
       this.rfs.spinner.classList.add('is-hidden');
-      console.log(this.rfs.spinner);
     }
   }, {
     key: "disable",
@@ -2397,7 +2396,6 @@ var LoadMoreBtn = /*#__PURE__*/function () {
       this.rfs.button.disabled = true;
       this.rfs.label.textContent = 'load...';
       this.rfs.spinner.classList.remove('is-hidden');
-      console.log(this.rfs.spinner);
     }
   }, {
     key: "show",
@@ -2577,6 +2575,7 @@ function appEndPictureMarkup(pictures) {
       text: 'We could not find any pictures that match your query. Please try another name',
       delay: 3000
     });
+    loadMoreBtn.hide();
     return;
   }
 
@@ -2641,7 +2640,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1035" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1029" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
