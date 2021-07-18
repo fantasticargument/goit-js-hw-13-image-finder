@@ -53,7 +53,6 @@ function appEndPictureMarkup(pictures) {
     return
   }
   rfs.conteinerCard.insertAdjacentHTML('beforeend', listPicture(pictures));
-  const firstEl = pictures[0]
   loadMoreBtn.show();
   loadMoreBtn.enable();
 }
@@ -73,7 +72,6 @@ function closedModal() {
 
   rfs.modalCase.classList.remove('is-open');
   window.removeEventListener('keydown', onEscDown);
-  
 }
 
 function onEscDown(event) {
