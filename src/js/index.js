@@ -1,5 +1,6 @@
 import NewsPictureApi from './apiService';
 import listPicture from '../templates/listPicture';
+import LoadMoreBtn from './loaudMomreBtn';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/mobile/dist/PNotifyMobile.css';
@@ -24,6 +25,10 @@ rfs.closedModalbatton.addEventListener('click', closedModal)
 rfs.beckDrop.addEventListener('click', closedModal)
 
 const newsPictureApi = new NewsPictureApi();
+const loadMoreBtn = new LoadMoreBtn({
+  selector: '[data-action="load-more"]',
+  hidden: true,
+});
 
 function onSubmit(eve) {
   eve.preventDefault();
@@ -35,6 +40,7 @@ function onSubmit(eve) {
 
 function onLoadMore() {
   newsPictureApi.fethArticls().then(appEndPictureMarkup);
+  loadMoreBtn.disable();
 }
 
 function appEndPictureMarkup(pictures) {
@@ -47,6 +53,9 @@ function appEndPictureMarkup(pictures) {
     return
   }
   rfs.conteinerCard.insertAdjacentHTML('beforeend', listPicture(pictures));
+  const firstEl = pictures[0]
+  loadMoreBtn.show();
+  loadMoreBtn.enable();
 }
 
 function createModal(eve) {
