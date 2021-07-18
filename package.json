@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/fantasticargument/goit-js-hw-13-image-finder/issues"
   },
-  "homepage": "https://fantasticargunpmment.github.io/goit-js-hw-13-image-finder",
+  "homepage": "https://fantasticargument.github.io/goit-js-hw-13-image-finder/",
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
