@@ -17,6 +17,7 @@ export default class LoadMoreBtn {
     this.rfs.button.disabled = false;
     this.rfs.label.textContent = 'Show more...';
     this.rfs.spinner.classList.add('is-hidden');
+          console.log(this.rfs.spinner)
 
   }
 
@@ -24,6 +25,7 @@ export default class LoadMoreBtn {
     this.rfs.button.disabled = true;
     this.rfs.label.textContent = 'load...';
     this.rfs.spinner.classList.remove('is-hidden');
+                console.log(this.rfs.spinner)
 
   }
 
