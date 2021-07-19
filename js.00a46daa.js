@@ -2554,6 +2554,7 @@ var loadMoreBtn = new _loaudMomreBtn.default({
   selector: '[data-action="load-more"]',
   hidden: true
 });
+var lasElement = rfs.conteinerCard.children;
 
 function onSubmit(eve) {
   eve.preventDefault();
@@ -2564,8 +2565,16 @@ function onSubmit(eve) {
 }
 
 function onLoadMore() {
-  newsPictureApi.fethArticls().then(appEndPictureMarkup);
+  newsPictureApi.fethArticls().then(appEndPictureMarkup).then(onScroll);
   loadMoreBtn.disable();
+}
+
+function onScroll() {
+  var i = lasElement.length;
+  lasElement[i - 12].scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 }
 
 function appEndPictureMarkup(pictures) {
@@ -2640,7 +2649,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1029" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10009" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
